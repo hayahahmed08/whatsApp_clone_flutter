@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:whatsapp/home_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
      primarySwatch: Colors.teal,
       ),
-
+      home: HomeScreen(),
     );
   }
 }
