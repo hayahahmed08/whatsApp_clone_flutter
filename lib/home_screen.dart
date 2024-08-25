@@ -11,7 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4, // Number of tabs (adjusted to 4)
+      length: 4, // Number of tabs
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -47,21 +47,61 @@ class _HomeScreenState extends State<HomeScreen> {
                   value: 2,
                   child: Text("Logout"),
                 ),
-
               ],
-              onSelected: (item) => {
+              onSelected: (item) {
                 // Handle menu item clicks here
               },
             ),
             const SizedBox(width: 10),
           ],
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            Icon(Icons.camera_alt),
-            Center(child: Text('Chats Tab')),
-            Center(child: Text('Status Tab')),
-            Center(child: Text('Call Tab')),
+            const Icon(Icons.camera_alt), // Camera Tab
+            // Chats Tab
+            ListView.builder(
+              itemCount: 20, // Adjust this to the number of chat items
+              itemBuilder: (context, index) {
+                return const ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.green,
+                    child: Icon(Icons.person, color: Colors.white),
+                  ),
+                  title: Text('John Wick'),
+                  subtitle: Text('Im developing a Flutter based WhatsApp UI'),
+                  trailing: Text("3:45 PM"),
+                );
+              },
+            ),
+            // Status Tab
+            ListView.builder(
+              itemCount: 10, // Adjust this to the number of status items
+              itemBuilder: (context, index) {
+                return const ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.person, color: Colors.white),
+                  ),
+                  title: Text('John Wick'),
+                  subtitle: Text('Today, 3:45 PM'),
+                );
+              },
+            ),
+            // Calls Tab
+            ListView.builder(
+              itemCount: 15, // Adjust this to the number of call items
+              itemBuilder: (context, index) {
+                return const ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.red,
+                    child: Icon(Icons.call, color: Colors.white),
+                  ),
+                  title: Text('John Wick'),
+                  subtitle: Text('Incoming | Today, 3:45 PM'),
+                  trailing: Icon(Icons.call_made, color: Colors.green),
+                );
+              },
+            ),
           ],
         ),
       ),
