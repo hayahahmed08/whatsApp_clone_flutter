@@ -11,7 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4, // Number of tabs
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
